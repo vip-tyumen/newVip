@@ -5,6 +5,8 @@
 /package-lock.json
 /vendor/*
 /manager/*
+/node_modules/*
+/bower_components/*
 /assets/.thumbs/*
 /assets/backup/*
 /assets/cache/*
@@ -24,3 +26,6 @@
 /assets/index.html
 /assets/templates/index.html
 /assets/index.html
+/test/*
+/tests/*
+/temp/*

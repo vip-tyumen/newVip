@@ -1,0 +1,25 @@
+{
+  "name": "evo-vip.site",
+  "description": "",
+  "main": "Gruntfile.js",
+  "authors": [
+    "ProjectSoft <projectsoft2009@yandex.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "https://ggithub.com/vip-tyumen/evoVIP",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.4.1",
+    "normalize.css": "^8.0.1",
+    "js-cookie": "^2.2.1",
+    "fancybox": "^3.5.7",
+    "slick-carousel": "^1.8.1",
+    "jquery-ui": "https://github.com/components/jqueryui.git#^1.12.1"
+  }
+}

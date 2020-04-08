@@ -1,0 +1,1 @@
+$.fancybox.defaults.transitionEffect = 'circular';
