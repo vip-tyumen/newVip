@@ -1,0 +1,37 @@
+{
+	"folders":
+	[
+		{
+			"name": "Ваш идеальный потолок",
+			"path": ".",
+			"folder_exclude_patterns": [
+				".git",
+				"bower_components",
+				"node_modules",
+				"tests",
+				"test",
+				"temp",
+				"manager",
+				"assets/.thumbs",
+				"assets/backup",
+				"assets/cache",
+				"assets/docs",
+				"assets/export",
+				"assets/files",
+				"assets/images",
+				"assets/import",
+				"assets/js",
+				"assets/lib",
+				"assets/libs",
+				"assets/modules",
+				"assets/plugins",
+				"assets/site",
+				"assets/snippets",
+				"assets/tvs"
+			]
+		}
+	],
+	"settings": {
+		"tab_size": 4
+	}
+}
