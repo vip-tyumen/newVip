@@ -28,6 +28,16 @@
 				"assets/site",
 				"assets/snippets",
 				"assets/tvs"
+			],
+			"file_exclude_patterns": [
+				"index.php",
+				"assets/templates/index.html",
+				"assets/index.html",
+				"*.sublime-workspace",
+				"composer.lock",
+				"vendor/*.html",
+				"vendor/**/*.html",
+				"package-lock.json"
 			]
 		}
 	],

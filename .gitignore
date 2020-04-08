@@ -1,5 +1,8 @@
 /.htaccess
 /vip.sublime-workspace
+/index.php
+/composer.lock
+/package-lock.json
 /vendor/*
 /manager/*
 /assets/.thumbs/*
@@ -18,5 +21,6 @@
 /assets/site/*
 /assets/snippets/*
 /assets/tvs/*
+/assets/index.html
 /assets/templates/index.html
 /assets/index.html
