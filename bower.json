@@ -1,12 +1,12 @@
 {
-  "name": "evo-vip.site",
+  "name": "new-vip.site",
   "description": "",
   "main": "Gruntfile.js",
   "authors": [
     "ProjectSoft <projectsoft2009@yandex.ru>"
   ],
   "license": "ISC",
-  "homepage": "https://ggithub.com/vip-tyumen/evoVIP",
+  "homepage": "https://github.com/vip-tyumen/newVip",
   "ignore": [
     "**/.*",
     "node_modules",

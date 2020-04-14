@@ -1,5 +1,5 @@
 {
-	"name": "evo-vip.site",
+	"name": "new-vip.site",
 	"version": "1.0.0",
 	"description": "",
 	"main": "Gruntfile.js",
@@ -12,14 +12,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/vip-tyumen/evoVIP.git"
+		"url": "git+https://github.com/vip-tyumen/newVip.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/vip-tyumen/evoVIP/issues"
+		"url": "https://github.com/vip-tyumen/newVip/issues"
 	},
-	"homepage": "https://github.com/vip-tyumen/evoVIP#readme",
+	"homepage": "https://github.com/vip-tyumen/newVip#readme",
 	"devDependencies": {
 		"cssnano": "^4.1.10",
 		"grunt": "^1.0.4",
