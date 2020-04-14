@@ -1,14 +1,15 @@
 module.exports = function(grunt){
 	var gc = {
-		fontVersion: '1.0.0',
-		normalize: function(path){
-			const regex = /\\+/g,
-				subst = `/`;
-			return path.replace(regex, subst);
+			fontVersion: '1.0.0',
+			normalize: function(path){
+				const regex = /\\+/g,
+					subst = `/`;
+				return path.replace(regex, subst);
+			},
+			assets: 'assets/templates/site',
+			path: 'assets/templates/site'
 		},
-		assets: 'assets/templates/site',
-		path: 'assets/templates/site'
-	};
+		gt = grunt.option('type');;
 	const fs = require('fs'),
 		chalk = require('chalk'),
 		uniqid = function () {
@@ -17,20 +18,21 @@ module.exports = function(grunt){
 			grunt.verbose.writeln("Generate hash: " + chalk.cyan(result) + " >>> OK");
 			return result;
 		};
-	require('load-grunt-tasks')(grunt);
+
 	require('time-grunt')(grunt);
-	
+	require('load-grunt-tasks')(grunt);
+
 	grunt.initConfig({
 		globalConfig : gc,
 		pkg : grunt.file.readJSON('package.json'),
 		webfont: {
 			icons: {
 				src: 'src/glyph/*.svg',
-				dest: 'src/fonts',
+				dest: '<%= globalConfig.path %>/fonts',
 				options: {
 					hashes: true,
 					relativeFontPath: '@{fontpath}',
-					destLess: 'src/less',
+					destLess: 'src/less/fonts',
 					font: 'IconsSite',
 					types: 'ttf,eot,woff,woff2',
 					fontFamilyName: 'IconsSite',
@@ -67,7 +69,7 @@ module.exports = function(grunt){
 					}
 				},
 				files: {
-					'<%= globalConfig.assets %>/css/main.css': [
+					'test/less/css/main.css': [
 						'src/less/main.less'
 					]
 				}
@@ -76,23 +78,22 @@ module.exports = function(grunt){
 		group_css_media_queries: {
 			group: {
 				files: {
-					'<%= globalConfig.assets %>/css/main.css': ['<%= globalConfig.assets %>/css/main.css']
+					'test/media/css/main.css': ['test/less/css/main.css']
 				}
 			}
 		},
-		replace: {
+		"regex-replace": {
 			dist: {
-				options: {
-					patterns: [
-						{
-							match: /\/\* *(.*?) *\*\//g,
-							replacement: ' '
-						}
-					]
-				},
-				files: {
-					'<%= globalConfig.assets %>/css/main.css': '<%= globalConfig.assets %>/css/main.css'
-				}
+				src:		['test/media/css/main.css'],
+				dest:		'<%= globalConfig.assets %>/css/main.css',
+				actions:	[
+					{
+						name:		"Remove css baner", 
+						search:		/\/\*[*!]?(!.*?)\*\//gs,
+						replace:	'',
+						flags:		'gs'
+					}
+				]
 			}
 		},
 		cssmin: {
@@ -102,7 +103,7 @@ module.exports = function(grunt){
 			},
 			minify: {
 				files: {
-					'<%= globalConfig.assets %>/css/main.css' : ['<%= globalConfig.assets %>/css/main.css'],
+					'<%= globalConfig.assets %>/css/main.min.css' : ['<%= globalConfig.assets %>/css/main.css'],
 				}
 			}
 		},
@@ -148,13 +149,13 @@ module.exports = function(grunt){
 						//'bower_components/fancybox/dist/jquery.fancybox.js',
 						"bower_components/fancybox/src/js/core.js",
 						'src/js/fancybox.default-options.js',
-					    "bower_components/fancybox/src/js/media.js",
+						"bower_components/fancybox/src/js/media.js",
 						"bower_components/fancybox/src/js/guestures.js",
-					    "bower_components/fancybox/src/js/slideshow.js",
-					    "bower_components/fancybox/src/js/fullscreen.js",
-					    "bower_components/fancybox/src/js/thumbs.js",
-					    "bower_components/fancybox/src/js/hash.js",
-					    "bower_components/fancybox/src/js/wheel.js",
+						"bower_components/fancybox/src/js/slideshow.js",
+						"bower_components/fancybox/src/js/fullscreen.js",
+						"bower_components/fancybox/src/js/thumbs.js",
+						"bower_components/fancybox/src/js/hash.js",
+						"bower_components/fancybox/src/js/wheel.js",
 						'bower_components/js-cookie/src/js.cookie.js',
 						//'bower_components/slick-carousel/slick/slick.js',
 						//'bower_components/Croppie/croppie.js',
@@ -353,17 +354,6 @@ module.exports = function(grunt){
 				}
 			}
 		},
-		connect: {
-			server: {
-				options: {
-					base: './docs',
-					hostname: "projectsoft",
-					protocol: 'http', // or 'http2'
-					port: 9000,
-					open: 'http://projectsoft:9000'
-				}
-			}
-		},
 		watch: {
 			options: {
 				livereload: true,
@@ -376,7 +366,7 @@ module.exports = function(grunt){
 				tasks: [
 					'less',
 					'group_css_media_queries',
-					'replace',
+					'regex-replace',
 					'cssmin',
 					'pug:serv',
 					'pug:tpl',
@@ -422,13 +412,15 @@ module.exports = function(grunt){
 				],
 				tasks: [
 					'webfont',
+					/*
 					'ttf2eot',
 					'ttf2woff',
 					'ttf2woff2',
 					'copy',
+					*/
 					'less',
 					'group_css_media_queries',
-					'replace',
+					'regex-replace',
 					'cssmin',
 					'pug:serv',
 					'pug:tpl',
@@ -436,15 +428,19 @@ module.exports = function(grunt){
 			}
 		}
 	});
+
+
+
+
 	grunt.registerTask('default', [
 		'webfont',
-		'ttf2eot',
+		/*'ttf2eot',
 		'ttf2woff',
-		'ttf2woff2',
+		'ttf2woff2',*/
 		'copy',
 		'less',
 		'group_css_media_queries',
-		'replace',
+		'regex-replace',
 		'cssmin',
 		'requirejs',
 		'uglify',
@@ -453,13 +449,12 @@ module.exports = function(grunt){
 		'pug',
 	]);
 	grunt.registerTask('dev',[
-		//'connect',
 		'watch'
 	]);
-	grunt.registerTask('minimal',[
+	grunt.registerTask('mini',[
 		'less',
 		'group_css_media_queries',
-		'replace',
+		'regex-replace',
 		'cssmin',
 		'pug'
 	]);
