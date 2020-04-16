@@ -37,7 +37,6 @@
 		"grunt-group-css-media-queries": "^1.0.1",
 		"grunt-real-favicon": "^0.2.4",
 		"grunt-regex-replace": "^0.4.0",
-		"grunt-replace": "^1.0.1",
 		"grunt-tinyimg": "^1.0.0",
 		"grunt-ttf2eot": "^1.0.0",
 		"grunt-ttf2woff": "^1.0.1",

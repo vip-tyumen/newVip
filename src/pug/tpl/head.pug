@@ -1,0 +1,44 @@
+head
+	meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+	meta(content="width=device-width, initial-scale=1" name="viewport")
+	meta(http-equiv="X-UA-Compatible" content="IE=edge")
+	meta(name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+	meta(name="cmsmagazine" content="d8e7426ec72ad3e4ea38b09ebf01284c")
+	meta(name='yandex-verification' content='3b0e96eec5f6362a')
+	|[*noIndex*]
+	base(href="[(site_url)]")
+	title
+		|[*titl*]
+	link(rel="alternate" type="[(rss:contentType)]" title="[(rss:pagetitle)]" href="[(rss:makeurl('full'))]")
+	meta(rel="canonical" content="[*id:makeurl('full')*]")
+	link(rel="shortcut icon" href="[(site_url)]favicon.ico" type="image/x-icon")
+	link(rel="apple-touch-icon" sizes="180x180" href="[(site_url)]apple-touch-icon.png")
+	link(rel="icon" type="image/png" sizes="32x32" href="[(site_url)]favicon-32x32.png")
+	link(rel="icon" type="image/png" sizes="192x192" href="[(site_url)]android-chrome-192x192.png")
+	link(rel="icon" type="image/png" sizes="16x16" href="[(site_url)]favicon-16x16.png")
+	link(rel="manifest" href="[(site_url)]site.webmanifest")
+	link(rel="mask-icon" href="[(site_url)]safari-pinned-tab.svg" color="#00b0e2")
+	meta(name="msapplication-TileColor" content="#2d89ef")
+	meta(name="msapplication-TileImage" content="[(site_url)]mstile-144x144.png")
+	meta(name="theme-color" content="#ffffff")
+	meta(name="title" content="[*titl:hsc*]")
+	meta(name="subtitle" content="[*longtitle:hsc*]")
+	meta(name="keywords" content="[*keyw:hsc*]")
+	meta(name="description" content="[*desc:hsc*]")
+	meta(name="short_link" content="[*id:makeurl('full')*]")
+	meta(name="designer" content="© [!$_SERVER['REQUEST_TIME']:dateFormat='Y'!] Чернышёв Андрей aka ProjectSoft (projectsoft@projectsoft.ru)")
+	meta(property="og:title" content="[*titl:hsc*]")
+	meta(property="og:description" content="[*desc:hsc*]")
+	meta(property="og:url" content="[*id:makeurl('full')*]")
+	meta(property="og:locale" content="ru_RU")
+	meta(property="og:type" content="website")
+	meta(name="twitter:card" content="summary_large_image")
+	meta(name="twitter:site" content="@")
+	meta(name="twitter:site:id" content="summary_large_image")
+	meta(name="twitter:creator" content="@")
+	meta(name="twitter:title" content="[*titl:hsc*]")
+	meta(name="twitter:description" content="[*desc:hsc*]")
+	|
+	|[[ogImage]]
+	style
+		|{{@FILE assets/templates/site/css/main.min.css}}

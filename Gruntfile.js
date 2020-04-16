@@ -1,6 +1,6 @@
 module.exports = function(grunt){
 	var gc = {
-			fontVersion: '1.0.0',
+			fontVersion: '1.0.1',
 			normalize: function(path){
 				const regex = /\\+/g,
 					subst = `/`;
@@ -30,7 +30,7 @@ module.exports = function(grunt){
 				src: 'src/glyph/*.svg',
 				dest: '<%= globalConfig.path %>/fonts',
 				options: {
-					hashes: true,
+					hashes: false,
 					relativeFontPath: '@{fontpath}',
 					destLess: 'src/less/fonts',
 					font: 'IconsSite',
@@ -63,9 +63,9 @@ module.exports = function(grunt){
 						new (require('less-plugin-autoprefix'))({browsers: ["last 4 versions"]}),
 					],
 					modifyVars: {
-						hashes: '\'' + uniqid() + '\'',
+						hash: '\'' + uniqid() + '\'',
 						fontpath: '/<%= globalConfig.path %>/fonts',
-						imgpath: '/<%= globalConfig.path %>/images'
+						imagepath: '/<%= globalConfig.path %>/images'
 					}
 				},
 				files: {

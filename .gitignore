@@ -18,7 +18,11 @@
 /assets/js/*
 /assets/lib/*
 /assets/libs/*
-/assets/modules/*
+/assets/modules/index.html
+/assets/modules/docmanager
+/assets/modules/store
+/assets/modules/clientsettings/core/*
+/assets/modules/clientsettings/config/*.sample
 /assets/plugins/*
 /assets/site/*
 /assets/snippets/*

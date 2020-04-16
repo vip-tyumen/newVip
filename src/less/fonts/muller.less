@@ -1,0 +1,34 @@
+.Muller(){
+	MullerThin				:	100;
+	MullerUltraLight		:	200;
+	MullerLight				:	300;
+	MullerRegular			:	400;
+	MullerMedium			:	500;
+	MullerBold				:	700;
+	MullerExtraBold			:	800;
+	MullerBlack				:	900;
+}
+each(.Muller(), .(@v, @k, @i) {
+	@font-face {
+		font-family	:	"Muller";
+		font-display: swap;
+		font-weight	:	@v;
+		font-style	:	italic;
+		src			:	url("@{fontpath}/@{k}Italic.eot?@{hash}");
+		src			:	url("@{fontpath}/@{k}Italic.eot?@{hash}#iefix") format("embedded-opentype"),
+						url("@{fontpath}/@{k}Italic.woff2?@{hash}") format("woff2"),
+						url("@{fontpath}/@{k}Italic.woff?@{hash}") format("woff"),
+						url("@{fontpath}/@{k}Italic.ttf?@{hash}") format("truetype");
+	}
+	@font-face {
+		font-family	:	"Muller";
+		font-display: swap;
+		font-weight	:	@v;
+		font-style	:	normal;
+		src			:	url("@{fontpath}/@{k}.eot?@{hash}");
+		src			:	url("@{fontpath}/@{k}.eot?@{hash}#iefix") format("embedded-opentype"),
+						url("@{fontpath}/@{k}.woff2?@{hash}") format("woff2"),
+						url("@{fontpath}/@{k}.woff?@{hash}") format("woff"),
+						url("@{fontpath}/@{k}.ttf?@{hash}") format("truetype");
+	}
+});
